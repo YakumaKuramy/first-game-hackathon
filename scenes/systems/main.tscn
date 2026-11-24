@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://csjye4utpv8l6" path="res://scripts/systems/main.gd" id="1_d0yks"]
 [ext_resource type="PackedScene" uid="uid://cp2ojgsmmjru" path="res://scenes/characters/player/player.tscn" id="2_ojoqw"]
 [ext_resource type="PackedScene" uid="uid://dueu4mmk1si27" path="res://scenes/resources/obstacle.tscn" id="3_v361m"]
+[ext_resource type="Texture2D" uid="uid://qleax4oy2iac" path="res://assets/PNG/Retina/tile_top.png" id="4_v361m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ojoqw"]
 font_size = 64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v361m"]
+size = Vector2(126, 122)
 
 [node name="main" type="Node2D" unique_id=1871908726]
 script = ExtResource("1_d0yks")
 cena_obstaculo = ExtResource("3_v361m")
 
 [node name="player" parent="." unique_id=1539706647 instance=ExtResource("2_ojoqw")]
-
-[node name="obstacle" parent="." unique_id=1917465305 instance=ExtResource("3_v361m")]
 
 [node name="spawn_position" type="Marker2D" parent="." unique_id=1515799304]
 
@@ -32,6 +34,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="game_over_sfx" type="AudioStreamPlayer" parent="HUD/game_over" unique_id=1022638725]
 
 [node name="game_over_lbl" type="Label" parent="HUD/game_over" unique_id=692902609]
 layout_mode = 1
@@ -65,7 +69,10 @@ grow_vertical = 2
 text = "restart"
 
 [node name="ground" type="StaticBody2D" parent="." unique_id=256210405]
+position = Vector2(59, 589)
 
 [node name="collision" type="CollisionShape2D" parent="ground" unique_id=328726173]
+shape = SubResource("RectangleShape2D_v361m")
 
 [node name="sprite" type="Sprite2D" parent="ground" unique_id=2143351776]
+texture = ExtResource("4_v361m")
