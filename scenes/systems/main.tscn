@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ctirq5eiv2c6h"]
+
+[ext_resource type="Script" uid="uid://csjye4utpv8l6" path="res://scripts/systems/main.gd" id="1_d0yks"]
+[ext_resource type="PackedScene" uid="uid://cp2ojgsmmjru" path="res://scenes/characters/player/player.tscn" id="2_ojoqw"]
+[ext_resource type="PackedScene" uid="uid://dueu4mmk1si27" path="res://scenes/resources/obstacle.tscn" id="3_v361m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojoqw"]
+font_size = 64
+
+[node name="main" type="Node2D" unique_id=1871908726]
+script = ExtResource("1_d0yks")
+cena_obstaculo = ExtResource("3_v361m")
+
+[node name="player" parent="." unique_id=1539706647 instance=ExtResource("2_ojoqw")]
+
+[node name="obstacle" parent="." unique_id=1917465305 instance=ExtResource("3_v361m")]
+
+[node name="spawn_position" type="Marker2D" parent="." unique_id=1515799304]
+
+[node name="spawn_timer" type="Timer" parent="." unique_id=720335064]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=345855584]
+
+[node name="score" type="Label" parent="HUD" unique_id=611057387]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="game_over" type="Panel" parent="HUD" unique_id=279130851]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over_lbl" type="Label" parent="HUD/game_over" unique_id=692902609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -104.0
+offset_right = 177.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fim de jogo"
+label_settings = SubResource("LabelSettings_ojoqw")
+
+[node name="restart_button" type="Button" parent="HUD/game_over" unique_id=537983606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -15.5
+offset_right = 30.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "restart"
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=256210405]
+
+[node name="collision" type="CollisionShape2D" parent="ground" unique_id=328726173]
+
+[node name="sprite" type="Sprite2D" parent="ground" unique_id=2143351776]
