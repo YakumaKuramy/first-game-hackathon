@@ -3,10 +3,16 @@
 [ext_resource type="Script" uid="uid://4li843j8hwjb" path="res://scripts/resources/obstacle.gd" id="1_8m00f"]
 [ext_resource type="Texture2D" uid="uid://r3totj68epi5" path="res://assets/PNG/Retina/tile_roof.png" id="2_p7rni"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obs"]
+size = Vector2(128, 128)
+
 [node name="obstacle" type="Area2D" unique_id=1917465305]
+collision_layer = 2
+collision_mask = 1
 script = ExtResource("1_8m00f")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1123531842]
+shape = SubResource("RectangleShape2D_obs")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=801899811]
 texture = ExtResource("2_p7rni")

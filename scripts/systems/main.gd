@@ -41,7 +41,7 @@ func _on_spawn_timer_timeout() -> void:
 	add_child(obstaculo)
 
 func _on_obstaculo_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and jogo_ativo:
+	if body.name == "player" and jogo_ativo:
 		jogo_ativo = false
 		spawn_timer.stop()
 		if has_node("SomGameOver"):
